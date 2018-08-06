@@ -1,0 +1,4 @@
+2.27.1
+pkgconfig(x11)
+libXinerama-dev
+pkgconfig(xt)

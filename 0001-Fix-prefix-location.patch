@@ -1,0 +1,25 @@
+From c81351b26a4c3438daf27eade5517f1b94ec01a3 Mon Sep 17 00:00:00 2001
+From: Auke Kok <auke-jan.h.kok@intel.com>
+Date: Mon, 6 Aug 2018 15:34:54 -0700
+Subject: [PATCH] Fix prefix location.
+
+---
+ config.mk | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/config.mk b/config.mk
+index 161b4d4..cae4892 100644
+--- a/config.mk
++++ b/config.mk
+@@ -11,7 +11,7 @@ verscmp ?= 1
+ xinerama ?= 1
+ 
+ # Prefix for all installed files
+-PREFIX ?= /usr/local
++PREFIX ?= /usr
+ ICON_PREFIX ?= ${DESTDIR}${PREFIX}/share/icons
+ 
+ # icons in /usr/share/local/icons (and other prefixes != /usr) are not
+-- 
+2.18.0
+
