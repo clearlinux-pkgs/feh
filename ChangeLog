@@ -1,3 +1,11 @@
+Sat, 27 Oct 2018 19:46:48 +0200  Daniel Friesel <derf+feh@finalrewind.org>
+
+* Release v2.28.1
+    * Do not ignore quit signals (SIGTERM, SIGINT, SIGQUIT) during preload
+    * Add missing EXIF orientations 2, 4, 5, and 7 (when built with exif=1,
+      patch by Olof-Joachim Frahm)
+    * Improve randomness on non-glibc systems
+
 Mon, 17 Sep 2018 21:17:04 +0200  Daniel Friesel <derf+feh@finalrewind.org>
 
 * Release v2.28
@@ -8,9 +16,9 @@ Mon, 17 Sep 2018 21:17:04 +0200  Daniel Friesel <derf+feh@finalrewind.org>
     * Fix unintened aliasing in rotated images whose rotation is not a
       multiple of 90 degrees (patch by <https://github.com/ulteq>)
     * New option: --on-last-slide=hold|quit|resume.
-      hold replaces --no-cycle (which is now deprecated), quit will cause feh
-      to quit after the last slide (patch by <https://github.com/ulteq>),
-      resume is the default (continue at the first image)
+      hold will cause feh to stop advancing beyond the last slide (patch by
+      <https://github.com/ulteq>), quit replaces --cycle-once (which is now
+      deprecated), and resume is the default (continue at the first image).
 
 Tue, 17 Jul 2018 17:33:10 +0200  Daniel Friesel <derf+feh@finalrewind.org>
 
