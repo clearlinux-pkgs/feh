@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x100D5BFB5166E005 (derf@finalrewind.org)
 #
 Name     : feh
-Version  : 2.28.1
-Release  : 6
-URL      : https://feh.finalrewind.org/feh-2.28.1.tar.bz2
-Source0  : https://feh.finalrewind.org/feh-2.28.1.tar.bz2
-Source99 : https://feh.finalrewind.org/feh-2.28.1.tar.bz2.asc
+Version  : 3.0
+Release  : 7
+URL      : https://feh.finalrewind.org/feh-3.0.tar.bz2
+Source0  : https://feh.finalrewind.org/feh-3.0.tar.bz2
+Source99 : https://feh.finalrewind.org/feh-3.0.tar.bz2.asc
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : MIT-feh
@@ -26,9 +26,7 @@ BuildRequires : pkgconfig(xt)
 Patch1: 0001-Fix-prefix-location.patch
 
 %description
-==============
-This document was last updated on 20010223-1620-PST.
-Please see the file COPYING for licensing information.
+[![build status](https://travis-ci.org/derf/feh.svg?branch=master)](https://travis-ci.org/derf/feh)
 
 %package bin
 Summary: bin components for the feh package.
@@ -75,7 +73,7 @@ man components for the feh package.
 
 
 %prep
-%setup -q -n feh-2.28.1
+%setup -q -n feh-3.0
 %patch1 -p1
 
 %build
@@ -83,11 +81,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1540764805
+export SOURCE_DATE_EPOCH=1541785586
 make  %{?_smp_mflags} PREFIX=/usr
 
 %install
-export SOURCE_DATE_EPOCH=1540764805
+export SOURCE_DATE_EPOCH=1541785586
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/feh
 cp COPYING %{buildroot}/usr/share/package-licenses/feh/COPYING
@@ -108,12 +106,7 @@ cp COPYING %{buildroot}/usr/share/package-licenses/feh/COPYING
 /usr/share/feh/fonts/yudit.ttf
 /usr/share/feh/images/feh.png
 /usr/share/feh/images/feh.svg
-/usr/share/feh/images/menubg_aluminium.png
-/usr/share/feh/images/menubg_aqua.png
-/usr/share/feh/images/menubg_black.png
-/usr/share/feh/images/menubg_brushed.png
 /usr/share/feh/images/menubg_default.png
-/usr/share/feh/images/menubg_sky.png
 /usr/share/icons/hicolor/48x48/apps/feh.png
 /usr/share/icons/hicolor/scalable/apps/feh.svg
 
