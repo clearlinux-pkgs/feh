@@ -1,3 +1,23 @@
+Mon, 22 Jul 2019 20:17:03 +0200  Daniel Friesel <derf+feh@finalrewind.org>
+
+* Release v3.2.1
+    * Use --no-fehbg option in ~/.fehbg. This fixes cases where an X11
+      setup change may inadvertently alter the commandline stored in .fehbg.
+    * Fix insufficient error handling when updating ~/.fehbg. Previously,
+      a stat() error may have caused .fehbg to be update with excessive file
+      permissions (patch by Tobias Stoeckmann)
+    * Fix TOCTTOU when setting the file mode of ~/.fehbg
+      (patch by Tobias Stoeckmann)
+
+Wed, 10 Jul 2019 17:40:29 +0200  Daniel Friesel <derf+feh@finalrewind.org>
+
+* Release v3.2
+    * Build feh with inotify=1 to automatically reload changed files in
+      slideshow mode. Introduces the inotify build flag and the --auto-reload
+      option.
+    * Reload current image(s) when receiving SIGUSR1 or SIGUSR2 in single-image
+      slideshows or in multiwindow mode
+
 Sun, 17 Feb 2019 08:41:53 +0100  Daniel Friesel <derf+feh@finalrewind.org>
 
 * Releasev v3.1.3

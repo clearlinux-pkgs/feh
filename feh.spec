@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x100D5BFB5166E005 (derf@finalrewind.org)
 #
 Name     : feh
-Version  : 3.1.3
-Release  : 11
-URL      : https://feh.finalrewind.org/feh-3.1.3.tar.bz2
-Source0  : https://feh.finalrewind.org/feh-3.1.3.tar.bz2
-Source99 : https://feh.finalrewind.org/feh-3.1.3.tar.bz2.asc
+Version  : 3.2.1
+Release  : 12
+URL      : https://feh.finalrewind.org/feh-3.2.1.tar.bz2
+Source0  : https://feh.finalrewind.org/feh-3.2.1.tar.bz2
+Source1 : https://feh.finalrewind.org/feh-3.2.1.tar.bz2.asc
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : MIT-feh
@@ -32,7 +32,6 @@ Summary: bin components for the feh package.
 Group: Binaries
 Requires: feh-data = %{version}-%{release}
 Requires: feh-license = %{version}-%{release}
-Requires: feh-man = %{version}-%{release}
 
 %description bin
 bin components for the feh package.
@@ -72,21 +71,25 @@ man components for the feh package.
 
 
 %prep
-%setup -q -n feh-3.1.3
+%setup -q -n feh-3.2.1
 %patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1550689291
-export LDFLAGS="${LDFLAGS} -fno-lto"
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1564176474
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$CFLAGS -fno-lto "
+export FFLAGS="$CFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 make  %{?_smp_mflags} PREFIX=/usr
 
 
 %install
-export SOURCE_DATE_EPOCH=1550689291
+export SOURCE_DATE_EPOCH=1564176474
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/feh
 cp COPYING %{buildroot}/usr/share/package-licenses/feh/COPYING
