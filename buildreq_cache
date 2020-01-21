@@ -1,4 +1,3 @@
-3.2.1
-libXinerama-dev
+3.3
+perl(Test::Command)
 pkgconfig(x11)
-pkgconfig(xt)

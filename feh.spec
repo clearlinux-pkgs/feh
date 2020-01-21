@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x100D5BFB5166E005 (derf@finalrewind.org)
 #
 Name     : feh
-Version  : 3.2.1
-Release  : 12
-URL      : https://feh.finalrewind.org/feh-3.2.1.tar.bz2
-Source0  : https://feh.finalrewind.org/feh-3.2.1.tar.bz2
-Source1 : https://feh.finalrewind.org/feh-3.2.1.tar.bz2.asc
+Version  : 3.3
+Release  : 14
+URL      : https://feh.finalrewind.org/feh-3.3.tar.bz2
+Source0  : https://feh.finalrewind.org/feh-3.3.tar.bz2
+Source1  : https://feh.finalrewind.org/feh-3.3.tar.bz2.asc
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : MIT-feh
@@ -20,8 +20,8 @@ Requires: feh-man = %{version}-%{release}
 BuildRequires : curl-dev
 BuildRequires : imlib2-dev
 BuildRequires : libpng-dev
+BuildRequires : perl(Test::Command)
 BuildRequires : pkgconfig(x11)
-BuildRequires : pkgconfig(xt)
 Patch1: 0001-Fix-prefix-location.patch
 
 %description
@@ -71,7 +71,8 @@ man components for the feh package.
 
 
 %prep
-%setup -q -n feh-3.2.1
+%setup -q -n feh-3.3
+cd %{_builddir}/feh-3.3
 %patch1 -p1
 
 %build
@@ -79,20 +80,27 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1564176474
+export SOURCE_DATE_EPOCH=1579641635
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
 export FFLAGS="$CFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
-make  %{?_smp_mflags} PREFIX=/usr
+make  %{?_smp_mflags}  PREFIX=/usr
 
+
+%check
+export LANG=C.UTF-8
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
+make test
 
 %install
-export SOURCE_DATE_EPOCH=1564176474
+export SOURCE_DATE_EPOCH=1579641635
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/feh
-cp COPYING %{buildroot}/usr/share/package-licenses/feh/COPYING
+cp %{_builddir}/feh-3.3/COPYING %{buildroot}/usr/share/package-licenses/feh/4794a2a7b8ad76c82f96380f496f69b7242d0de9
 %make_install
 
 %files
@@ -120,7 +128,7 @@ cp COPYING %{buildroot}/usr/share/package-licenses/feh/COPYING
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/feh/COPYING
+/usr/share/package-licenses/feh/4794a2a7b8ad76c82f96380f496f69b7242d0de9
 
 %files man
 %defattr(0644,root,root,0755)
