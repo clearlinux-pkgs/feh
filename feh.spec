@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x100D5BFB5166E005 (derf@finalrewind.org)
 #
 Name     : feh
-Version  : 3.3
-Release  : 14
-URL      : https://feh.finalrewind.org/feh-3.3.tar.bz2
-Source0  : https://feh.finalrewind.org/feh-3.3.tar.bz2
-Source1  : https://feh.finalrewind.org/feh-3.3.tar.bz2.asc
+Version  : 3.4
+Release  : 15
+URL      : https://feh.finalrewind.org/feh-3.4.tar.bz2
+Source0  : https://feh.finalrewind.org/feh-3.4.tar.bz2
+Source1  : https://feh.finalrewind.org/feh-3.4.tar.bz2.asc
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : MIT-feh
@@ -71,8 +71,8 @@ man components for the feh package.
 
 
 %prep
-%setup -q -n feh-3.3
-cd %{_builddir}/feh-3.3
+%setup -q -n feh-3.4
+cd %{_builddir}/feh-3.4
 %patch1 -p1
 
 %build
@@ -80,11 +80,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1579641635
+export SOURCE_DATE_EPOCH=1587000691
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 make  %{?_smp_mflags}  PREFIX=/usr
 
@@ -97,10 +97,10 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make test
 
 %install
-export SOURCE_DATE_EPOCH=1579641635
+export SOURCE_DATE_EPOCH=1587000691
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/feh
-cp %{_builddir}/feh-3.3/COPYING %{buildroot}/usr/share/package-licenses/feh/4794a2a7b8ad76c82f96380f496f69b7242d0de9
+cp %{_builddir}/feh-3.4/COPYING %{buildroot}/usr/share/package-licenses/feh/4794a2a7b8ad76c82f96380f496f69b7242d0de9
 %make_install
 
 %files
