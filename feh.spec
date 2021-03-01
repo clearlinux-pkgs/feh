@@ -6,7 +6,7 @@
 #
 Name     : feh
 Version  : 3.5
-Release  : 16
+Release  : 17
 URL      : https://feh.finalrewind.org/feh-3.5.tar.bz2
 Source0  : https://feh.finalrewind.org/feh-3.5.tar.bz2
 Source1  : https://feh.finalrewind.org/feh-3.5.tar.bz2.asc
@@ -22,6 +22,7 @@ BuildRequires : imlib2-dev
 BuildRequires : libpng-dev
 BuildRequires : perl(Test::Command)
 BuildRequires : pkgconfig(x11)
+BuildRequires : pkgconfig(xt)
 Patch1: 0001-Fix-prefix-location.patch
 
 %description
@@ -80,7 +81,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1598997246
+export SOURCE_DATE_EPOCH=1614622248
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -97,7 +98,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make test
 
 %install
-export SOURCE_DATE_EPOCH=1598997246
+export SOURCE_DATE_EPOCH=1614622248
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/feh
 cp %{_builddir}/feh-3.5/COPYING %{buildroot}/usr/share/package-licenses/feh/27c78da780b027e6a488083d5d9202f0a2e3d2c9
