@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x100D5BFB5166E005 (derf@finalrewind.org)
 #
 Name     : feh
-Version  : 3.5
-Release  : 17
-URL      : https://feh.finalrewind.org/feh-3.5.tar.bz2
-Source0  : https://feh.finalrewind.org/feh-3.5.tar.bz2
-Source1  : https://feh.finalrewind.org/feh-3.5.tar.bz2.asc
+Version  : 3.7.1
+Release  : 18
+URL      : https://feh.finalrewind.org/feh-3.7.1.tar.bz2
+Source0  : https://feh.finalrewind.org/feh-3.7.1.tar.bz2
+Source1  : https://feh.finalrewind.org/feh-3.7.1.tar.bz2.asc
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : MIT-feh
@@ -21,7 +21,6 @@ BuildRequires : curl-dev
 BuildRequires : imlib2-dev
 BuildRequires : libpng-dev
 BuildRequires : perl(Test::Command)
-BuildRequires : pkgconfig(x11)
 BuildRequires : pkgconfig(xt)
 Patch1: 0001-Fix-prefix-location.patch
 
@@ -72,8 +71,8 @@ man components for the feh package.
 
 
 %prep
-%setup -q -n feh-3.5
-cd %{_builddir}/feh-3.5
+%setup -q -n feh-3.7.1
+cd %{_builddir}/feh-3.7.1
 %patch1 -p1
 
 %build
@@ -81,7 +80,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1614622248
+export SOURCE_DATE_EPOCH=1627334692
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -98,10 +97,10 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make test
 
 %install
-export SOURCE_DATE_EPOCH=1614622248
+export SOURCE_DATE_EPOCH=1627334692
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/feh
-cp %{_builddir}/feh-3.5/COPYING %{buildroot}/usr/share/package-licenses/feh/27c78da780b027e6a488083d5d9202f0a2e3d2c9
+cp %{_builddir}/feh-3.7.1/COPYING %{buildroot}/usr/share/package-licenses/feh/27c78da780b027e6a488083d5d9202f0a2e3d2c9
 %make_install
 
 %files
