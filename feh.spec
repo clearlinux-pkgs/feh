@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x100D5BFB5166E005 (derf@finalrewind.org)
 #
 Name     : feh
-Version  : 3.7.1
-Release  : 18
-URL      : https://feh.finalrewind.org/feh-3.7.1.tar.bz2
-Source0  : https://feh.finalrewind.org/feh-3.7.1.tar.bz2
-Source1  : https://feh.finalrewind.org/feh-3.7.1.tar.bz2.asc
+Version  : 3.7.2
+Release  : 19
+URL      : https://feh.finalrewind.org/feh-3.7.2.tar.bz2
+Source0  : https://feh.finalrewind.org/feh-3.7.2.tar.bz2
+Source1  : https://feh.finalrewind.org/feh-3.7.2.tar.bz2.asc
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : MIT-feh
@@ -71,8 +71,8 @@ man components for the feh package.
 
 
 %prep
-%setup -q -n feh-3.7.1
-cd %{_builddir}/feh-3.7.1
+%setup -q -n feh-3.7.2
+cd %{_builddir}/feh-3.7.2
 %patch1 -p1
 
 %build
@@ -80,7 +80,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1627334692
+export SOURCE_DATE_EPOCH=1632864758
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -97,10 +97,10 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make test
 
 %install
-export SOURCE_DATE_EPOCH=1627334692
+export SOURCE_DATE_EPOCH=1632864758
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/feh
-cp %{_builddir}/feh-3.7.1/COPYING %{buildroot}/usr/share/package-licenses/feh/27c78da780b027e6a488083d5d9202f0a2e3d2c9
+cp %{_builddir}/feh-3.7.2/COPYING %{buildroot}/usr/share/package-licenses/feh/27c78da780b027e6a488083d5d9202f0a2e3d2c9
 %make_install
 
 %files
